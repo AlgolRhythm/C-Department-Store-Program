@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C:\Users\AARONS\Documents\# C\##### C PROGRAMS\Mini Project in C Department Store Management System\department store management system.c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="Code::Blocks Exporter plugin" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.style11 { color: #000000; background-color: #FFFFFF; }
+.style64 { color: #C8C8C8; }
+.style72 { color: #C8C8C8; }
+.style75 { color: #C8C8C8; }
+.style1 { color: #A0A0A0; }
+.style23 { color: #A0A0A0; }
+.style65 { color: #A0A0A0; }
+.style87 { color: #A0A0A0; }
+.style2 { color: #BEBEE6; }
+.style66 { color: #BEBEE6; }
+.style3 { color: #8080FF; font-weight: bold; }
+.style24 { color: #8080FF; font-weight: bold; }
+.style67 { color: #8080FF; font-weight: bold; }
+.style88 { color: #8080FF; font-weight: bold; }
+.style15 { color: #8080FF; font-weight: bold; }
+.style79 { color: #8080FF; font-weight: bold; }
+.style17 { color: #008080; }
+.style81 { color: #008080; }
+.style18 { color: #800000; }
+.style82 { color: #800000; }
+.style4 { color: #F000F0; }
+.style68 { color: #F0C8F0; }
+.style5 { color: #0000A0; font-weight: bold; }
+.style69 { color: #8787C8; font-weight: bold; }
+.style16 { color: #00A000; font-weight: bold; }
+.style80 { color: #9AC89A; font-weight: bold; }
+.style19 { color: #BE00BE; font-weight: bold; }
+.style83 { color: #BE89BE; font-weight: bold; }
+.style6 { color: #0000FF; }
+.style12 { color: #0000FF; }
+.style70 { color: #BEBEFF; }
+.style76 { color: #BEBEFF; }
+.style7 { color: #E0A000; }
+.style71 { color: #E0CE9F; }
+.style8 { color: #000000; }
+.style9 { color: #00A000; }
+.style73 { color: #84A084; }
+.style10 { color: #FF0000; }
+.style74 { color: #FFC8C8; }
+.style34 { color: #000000; background-color: #80FFFF; font-weight: bold; }
+.style35 { color: #FFFFFF; background-color: #FF0000; font-weight: bold; }
+.style50 { color: #404080; font-style: italic; }
+.style114 { color: #8585AC; font-style: italic; }
+--></style></head>
+<body>
+<pre>
+<code><span style="font: 8pt Courier New;"><span class="body">  1 </span><span class="style9">#include&lt;stdio.h&gt;</span>
+<span class="body">  2  </span><span class="style9">#include&lt;conio.h&gt;</span>
+<span class="body">  3  </span><span class="style9">#include&lt;stdlib.h&gt;</span>
+<span class="body">  4  </span><span class="style9">#include&lt;string.h&gt;</span>
+<span class="body">  5  </span><span class="style9">#include&lt;ctype.h&gt;</span>
+<span class="body">  6  </span><span class="style9">#include&lt;windows.h&gt;</span>
+<span class="body">  7  </span>
+<span class="body">  8  </span><span class="style9">#define ANS 15</span>
+<span class="body">  9  </span><span class="style9">#define ACS 4</span>
+<span class="body"> 10  </span><span class="style11">COORD coord</span><span class="style10">= {</span><span class="style4">0</span><span class="style10">,</span><span class="style4">0</span><span class="style10">}; </span><span class="style2">// this is global variable</span>
+<span class="body"> 11  </span><span class="style5">void </span><span class="style11">gotoxy</span><span class="style10">(</span><span class="style5">int </span><span class="style11">x</span><span class="style10">,</span><span class="style5">int </span><span class="style11">y</span><span class="style10">)</span>
+<span class="body"> 12  </span><span class="style10">{</span>
+<span class="body"> 13      </span><span class="style11">coord</span><span class="style10">.</span><span class="style11">X</span><span class="style10">=</span><span class="style11">x</span><span class="style10">;</span>
+<span class="body"> 14      </span><span class="style11">coord</span><span class="style10">.</span><span class="style11">Y</span><span class="style10">=</span><span class="style11">y</span><span class="style10">;</span>
+<span class="body"> 15      </span><span class="style11">SetConsoleCursorPosition</span><span class="style10">(</span><span class="style11">GetStdHandle</span><span class="style10">(</span><span class="style11">STD_OUTPUT_HANDLE</span><span class="style10">),</span><span class="style11">coord</span><span class="style10">);</span>
+<span class="body"> 16  </span><span class="style10">}</span>
+<span class="body"> 17  </span><span class="style1">/*declaration of checking functions*/</span>
+<span class="body"> 18  </span><span class="style5">void </span><span class="style11">c_code</span><span class="style10">(</span><span class="style5">char</span><span class="style10">[]);</span>
+<span class="body"> 19  </span><span class="style5">int </span><span class="style11">check</span><span class="style10">(</span><span class="style5">char</span><span class="style10">[]);</span>
+<span class="body"> 20  </span>
+<span class="body"> 21  </span><span class="style1">/*structure declaration*/</span>
+<span class="body"> 22  </span><span class="style5">typedef struct</span>
+<span class="body"> 23  </span><span class="style10">{</span>
+<span class="body"> 24      </span><span class="style5">char </span><span class="style11">name</span><span class="style10">[</span><span class="style11">ANS</span><span class="style10">],</span><span class="style11">code</span><span class="style10">[</span><span class="style11">ACS</span><span class="style10">];</span>
+<span class="body"> 25      </span><span class="style5">float </span><span class="style11">rate</span><span class="style10">;</span>
+<span class="body"> 26      </span><span class="style5">int </span><span class="style11">quantity</span><span class="style10">;</span>
+<span class="body"> 27  </span><span class="style10">} </span><span class="style11">rec</span><span class="style10">;</span>
+<span class="body"> 28  rec item;</span>
+<span class="body"> 29  </span>
+<span class="body"> 30  /*declaration of display functions*/</span>
+<span class="body"> 31  void curser(int);</span>
+<span class="body"> 32  void dbill();</span>
+<span class="body"> 33  void d_mainmenu();</span>
+<span class="body"> 34  void display(rec *,int,int);</span>
+<span class="body"> 35  void window(int,int,int,int);</span>
+<span class="body"> 36  void dis_con();</span>
+<span class="body"> 37  void d_search();</span>
+<span class="body"> 38  void highlight(int,int);</span>
+<span class="body"> 39  </span>
+<span class="body"> 40  /*declaration of main menu functions*/</span>
+<span class="body"> 41  void bill() ;</span>
+<span class="body"> 42  void edit();</span>
+<span class="body"> 43  void add();</span>
+<span class="body"> 44  void del();</span>
+<span class="body"> 45  void exit();</span>
+<span class="body"> 46  </span>
+<span class="body"> 47  /*declaration of display submenu functions*/</span>
+<span class="body"> 48  void d_code();</span>
+<span class="body"> 49  void d_rate();</span>
+<span class="body"> 50  void d_quan();</span>
+<span class="body"> 51  void d_all();</span>
+<span class="body"> 52  </span>
+<span class="body"> 53  /*start of main*/</span>
+<span class="body"> 54  int main()</span>
+<span class="body"> 55  {</span>
+<span class="body"> 56      d_mainmenu();</span>
+<span class="body"> 57      return 0;</span>
+<span class="body"> 58  }</span>
+<span class="body"> 59  </span>
+<span class="body"> 60  void d_mainmenu()</span>
+<span class="body"> 61  {</span>
+<span class="body"> 62      int i;</span>
+<span class="body"> 63      char ch;</span>
+<span class="body"> 64      const char *menu[]= {"   Calculate Bill","   Add Goods","   Edit Goods","   Display All ","   Search", "   Delete Goods","   Exit"};</span>
+<span class="body"> 65      system("cls");</span>
+<span class="body"> 66  //textbackground(11);</span>
+<span class="body"> 67  //textcolor(0);</span>
+<span class="body"> 68  //_setcursortype(_NOCURSOR);</span>
+<span class="body"> 69      window(25,50,20,32);</span>
+<span class="body"> 70      gotoxy(33,18);</span>
+<span class="body"> 71      printf("MAIN MENU");</span>
+<span class="body"> 72      for (i=0; i&lt;=6; i++)</span>
+<span class="body"> 73      {</span>
+<span class="body"> 74          gotoxy(30,22+i+1);</span>
+<span class="body"> 75          printf("%s\n\n\n",menu[i]);</span>
+<span class="body"> 76      }</span>
+<span class="body"> 77      curser(7);</span>
+<span class="body"> 78  }</span>
+<span class="body"> 79  </span>
+<span class="body"> 80  void d_search()</span>
+<span class="body"> 81  {</span>
+<span class="body"> 82      char ch;</span>
+<span class="body"> 83      int i;</span>
+<span class="body"> 84      const char *menu[]= {"   By Code","   By Rate","   By Quantity","   Back to main menu"};</span>
+<span class="body"> 85      system("cls");</span>
+<span class="body"> 86  //textbackground(11);</span>
+<span class="body"> 87  //textcolor(0);</span>
+<span class="body"> 88      window(25,50,20,32);</span>
+<span class="body"> 89      gotoxy(33,18);</span>
+<span class="body"> 90      printf("SEARCH MENU");</span>
+<span class="body"> 91      for (i=0; i&lt;=3; i++)</span>
+<span class="body"> 92      {</span>
+<span class="body"> 93          gotoxy(30,22+i+1);</span>
+<span class="body"> 94          printf("%s\n\n\n",menu[i]);</span>
+<span class="body"> 95      }</span>
+<span class="body"> 96      curser(4);</span>
+<span class="body"> 97  }</span>
+<span class="body"> 98  </span>
+<span class="body"> 99  /*function for cursor movement*/</span>
+<span class="body">100  void curser(int no)</span>
+<span class="body">101  {</span>
+<span class="body">102      int count=1;</span>
+<span class="body">103      char ch='0';</span>
+<span class="body">104      gotoxy(30,23);</span>
+<span class="body">105      while(1)</span>
+<span class="body">106      {</span>
+<span class="body">107          switch(ch)</span>
+<span class="body">108          {</span>
+<span class="body">109          case 80:</span>
+<span class="body">110              count++;</span>
+<span class="body">111              if (count==no+1) count=1;</span>
+<span class="body">112              break;</span>
+<span class="body">113          case 72:</span>
+<span class="body">114              count--;</span>
+<span class="body">115              if(count==0) count=no;</span>
+<span class="body">116              break;</span>
+<span class="body">117          }</span>
+<span class="body">118          highlight(no,count);</span>
+<span class="body">119          ch=getch();</span>
+<span class="body">120          if(ch=='\r')</span>
+<span class="body">121          {</span>
+<span class="body">122              if(no==7)</span>
+<span class="body">123              {</span>
+<span class="body">124                  if (count==1) bill() ;</span>
+<span class="body">125                  else if(count==2) add();</span>
+<span class="body">126                  else if(count==3) edit();</span>
+<span class="body">127                  else if (count==4) d_all();</span>
+<span class="body">128                  else if (count==5) d_search();</span>
+<span class="body">129                  else if (count==6) del();</span>
+<span class="body">130                  else   exit(0);</span>
+<span class="body">131              }</span>
+<span class="body">132              if(no==4)</span>
+<span class="body">133              {</span>
+<span class="body">134                  if (count==1) d_code();</span>
+<span class="body">135                  else if (count==2)d_rate();</span>
+<span class="body">136                  else if (count==3) d_quan();</span>
+<span class="body">137                  else d_mainmenu();</span>
+<span class="body">138              }</span>
+<span class="body">139          }</span>
+<span class="body">140      }</span>
+<span class="body">141  }</span>
+<span class="body">142  </span>
+<span class="body">143  void highlight(int no,int count)</span>
+<span class="body">144  {</span>
+<span class="body">145      if (no==4)</span>
+<span class="body">146      {</span>
+<span class="body">147          //textbackground(11);</span>
+<span class="body">148          //textcolor(0);</span>
+<span class="body">149          gotoxy(30,23);</span>
+<span class="body">150          printf("   By Code          ");</span>
+<span class="body">151          gotoxy(30,24);</span>
+<span class="body">152          printf("   By Rate          ");</span>
+<span class="body">153          gotoxy(30,25);</span>
+<span class="body">154          printf("   By Quantity      ");</span>
+<span class="body">155          gotoxy(30,26);</span>
+<span class="body">156          printf("   Back to main menu");</span>
+<span class="body">157          //textcolor(0);</span>
+<span class="body">158          //textbackground(2);</span>
+<span class="body">159          switch (count)</span>
+<span class="body">160          {</span>
+<span class="body">161          case 1:</span>
+<span class="body">162              gotoxy(30,23);</span>
+<span class="body">163              printf(" - By Code          ");</span>
+<span class="body">164              break;</span>
+<span class="body">165          case 2:</span>
+<span class="body">166              gotoxy(30,24);</span>
+<span class="body">167              printf(" - By Rate          ");</span>
+<span class="body">168              break;</span>
+<span class="body">169          case 3:</span>
+<span class="body">170              gotoxy(30,25);</span>
+<span class="body">171              printf(" - By Quantity      ");</span>
+<span class="body">172              break;</span>
+<span class="body">173          case 4:</span>
+<span class="body">174              gotoxy(30,26);</span>
+<span class="body">175              printf(" - Back to main menu");</span>
+<span class="body">176              break;</span>
+<span class="body">177          }</span>
+<span class="body">178      }</span>
+<span class="body">179  </span>
+<span class="body">180      if(no==7)</span>
+<span class="body">181      {</span>
+<span class="body">182          //textbackground(11);</span>
+<span class="body">183          //textcolor(0);</span>
+<span class="body">184          gotoxy (30,23);</span>
+<span class="body">185          printf("   Calculate Bill ");</span>
+<span class="body">186          gotoxy (30,24);</span>
+<span class="body">187          printf("   Add Goods      ");</span>
+<span class="body">188          gotoxy (30,25);</span>
+<span class="body">189          printf("   Edit Goods     ");</span>
+<span class="body">190          gotoxy (30,26);</span>
+<span class="body">191          printf("   Display All    ");</span>
+<span class="body">192          gotoxy (30,27);</span>
+<span class="body">193          printf("   Search         ");</span>
+<span class="body">194          gotoxy (30,28);</span>
+<span class="body">195          printf("   Delete Goods   ");</span>
+<span class="body">196          gotoxy (30,29);</span>
+<span class="body">197          printf("   Exit           ");</span>
+<span class="body">198          //textcolor(0);</span>
+<span class="body">199          //textbackground(2);</span>
+<span class="body">200          switch(count)</span>
+<span class="body">201          {</span>
+<span class="body">202          case 1:</span>
+<span class="body">203              gotoxy (30,23);</span>
+<span class="body">204              printf(" - Calculate Bill ");</span>
+<span class="body">205              break;</span>
+<span class="body">206          case 2:</span>
+<span class="body">207              gotoxy (30,24);</span>
+<span class="body">208              printf(" - Add Goods      ");</span>
+<span class="body">209              break;</span>
+<span class="body">210          case 3:</span>
+<span class="body">211              gotoxy (30,25);</span>
+<span class="body">212              printf(" - Edit Goods     ");</span>
+<span class="body">213              break;</span>
+<span class="body">214          case 4:</span>
+<span class="body">215              gotoxy (30,26);</span>
+<span class="body">216              printf(" - Display All    ");</span>
+<span class="body">217              break;</span>
+<span class="body">218          case 5:</span>
+<span class="body">219              gotoxy (30,27);</span>
+<span class="body">220              printf(" - Search         ");</span>
+<span class="body">221              break;</span>
+<span class="body">222          case 6:</span>
+<span class="body">223              gotoxy (30,28);</span>
+<span class="body">224              printf(" - Delete Goods   ");</span>
+<span class="body">225              break;</span>
+<span class="body">226          case 7:</span>
+<span class="body">227              gotoxy (30,29);</span>
+<span class="body">228              printf(" - Exit           ");</span>
+<span class="body">229              break;</span>
+<span class="body">230          }</span>
+<span class="body">231      }</span>
+<span class="body">232  }</span>
+<span class="body">233  </span>
+<span class="body">234  void bill()</span>
+<span class="body">235  {</span>
+<span class="body">236      char x[4]= {0};</span>
+<span class="body">237      int j=29,q=0,size=0,i=1;</span>
+<span class="body">238      float total=0,gtotal=0;</span>
+<span class="body">239      FILE *file;</span>
+<span class="body">240      file=fopen("record.txt","r+b");</span>
+<span class="body">241      rewind(file);</span>
+<span class="body">242      system("cls");</span>
+<span class="body">243      dbill();</span>
+<span class="body">244      gotoxy(26,15);</span>
+<span class="body">245      printf("enter  \"end\" to finish input");</span>
+<span class="body">246      while(1)</span>
+<span class="body">247      {</span>
+<span class="body">248          gotoxy(25,18);</span>
+<span class="body">249          printf("                    ");</span>
+<span class="body">250          gotoxy(25,19);</span>
+<span class="body">251          printf("                    ");</span>
+<span class="body">252          gotoxy(25,18);</span>
+<span class="body">253          printf("enter item code:");</span>
+<span class="body">254          scanf("%s",x);</span>
+<span class="body">255          if(strcmp(x,"end")==0)</span>
+<span class="body">256              break;</span>
+<span class="body">257          gotoxy(25,19);</span>
+<span class="body">258          printf("enter quantity:");</span>
+<span class="body">259          scanf("%d",&amp;q);</span>
+<span class="body">260          rewind(file);</span>
+<span class="body">261          while(fread(&amp;item,sizeof(item),1,file))</span>
+<span class="body">262          {</span>
+<span class="body">263              if((strcmp(item.code,x)==0))</span>
+<span class="body">264              {</span>
+<span class="body">265                  total=item.rate*q;</span>
+<span class="body">266                  gotoxy(11,j);</span>
+<span class="body">267                  printf("%4d",i);</span>
+<span class="body">268                  printf("%9s",item.name);</span>
+<span class="body">269                  printf("%13d",q);</span>
+<span class="body">270                  printf("%15.2f",item.rate);</span>
+<span class="body">271                  printf("%13.2f",total);</span>
+<span class="body">272                  gtotal=gtotal+total;</span>
+<span class="body">273                  size=sizeof(item);</span>
+<span class="body">274                  item.quantity=item.quantity-q;</span>
+<span class="body">275                  j+=2;</span>
+<span class="body">276                  i++;</span>
+<span class="body">277                  fseek(file,-size,SEEK_CUR);</span>
+<span class="body">278                  fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">279                  break;</span>
+<span class="body">280              }</span>
+<span class="body">281          }</span>
+<span class="body">282      }</span>
+<span class="body">283      if(gtotal!=0)</span>
+<span class="body">284      {</span>
+<span class="body">285          gotoxy(30,j+5);</span>
+<span class="body">286          printf("TOTAL AMOUNT = NRs. %6.2f",gtotal);</span>
+<span class="body">287      }</span>
+<span class="body">288      fclose(file);</span>
+<span class="body">289      getch();</span>
+<span class="body">290      d_mainmenu();</span>
+<span class="body">291  }</span>
+<span class="body">292  /*function to display bill window*/</span>
+<span class="body">293  void dbill()</span>
+<span class="body">294  {</span>
+<span class="body">295      int i;</span>
+<span class="body">296      gotoxy(20,10);</span>
+<span class="body">297  //;</span>
+<span class="body">298      for (i=1; i&lt;=10; i++)</span>
+<span class="body">299          printf("*");</span>
+<span class="body">300      printf(" * FASHION WEAR * ");</span>
+<span class="body">301      for (i=1; i&lt;=10; i++)</span>
+<span class="body">302          printf("*");</span>
+<span class="body">303      printf("\n\n");</span>
+<span class="body">304      gotoxy(30,11);</span>
+<span class="body">305      printf("Departmental Store");</span>
+<span class="body">306  //textcolor(1);</span>
+<span class="body">307      gotoxy(32,25);</span>
+<span class="body">308      printf("CUSTOMER'S BILL") ;</span>
+<span class="body">309  //textcolor(8);</span>
+<span class="body">310      gotoxy(13,27);</span>
+<span class="body">311      printf("SN.   Item Name     Quantity     Rate          Total");</span>
+<span class="body">312  </span>
+<span class="body">313  }</span>
+<span class="body">314  /*function to add records*/</span>
+<span class="body">315  void add ()</span>
+<span class="body">316  {</span>
+<span class="body">317      FILE *file;</span>
+<span class="body">318      char y[ACS],x[12];</span>
+<span class="body">319      system("cls");</span>
+<span class="body">320  //textbackground(11);</span>
+<span class="body">321  //textcolor(0);</span>
+<span class="body">322      gotoxy(25,25);</span>
+<span class="body">323      printf("Enter new record(Y/N)?");</span>
+<span class="body">324      while(toupper(getche())=='Y')</span>
+<span class="body">325      {</span>
+<span class="body">326          system("cls");</span>
+<span class="body">327          file=fopen("record.txt","ab");</span>
+<span class="body">328          c_code(y);</span>
+<span class="body">329          strcpy(item.code,y);</span>
+<span class="body">330          gotoxy(22,28);</span>
+<span class="body">331          printf("Enter rate of the item:");</span>
+<span class="body">332          scanf("%f",&amp;item.rate);</span>
+<span class="body">333          gotoxy(22,30);</span>
+<span class="body">334          printf("Enter quantity of the item:");</span>
+<span class="body">335          scanf("%d",&amp;item.quantity);</span>
+<span class="body">336          gotoxy(22,32);</span>
+<span class="body">337          printf("Enter name of the item:");</span>
+<span class="body">338          scanf("%s",item.name);</span>
+<span class="body">339          fseek(file,0,SEEK_END);</span>
+<span class="body">340          fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">341          fclose(file);</span>
+<span class="body">342          gotoxy(22,34);</span>
+<span class="body">343          printf("Enter new record(Y/N)?");</span>
+<span class="body">344  </span>
+<span class="body">345      }</span>
+<span class="body">346      d_mainmenu();</span>
+<span class="body">347  }</span>
+<span class="body">348  </span>
+<span class="body">349  /*function to check availability of code*/</span>
+<span class="body">350  void c_code(char y[])</span>
+<span class="body">351  {</span>
+<span class="body">352      int flag;</span>
+<span class="body">353      FILE *file;</span>
+<span class="body">354      file=fopen("record.txt","rb");</span>
+<span class="body">355      while(1)</span>
+<span class="body">356      {</span>
+<span class="body">357          system("cls");</span>
+<span class="body">358          window(20,58,23,36);</span>
+<span class="body">359          gotoxy(32,18);</span>
+<span class="body">360          printf(" ADD ARTICLES ")  ;</span>
+<span class="body">361          flag=1;</span>
+<span class="body">362          rewind(file);</span>
+<span class="body">363          gotoxy(22,25);</span>
+<span class="body">364          printf("Enter new code of the article:");</span>
+<span class="body">365          scanf(" %[^\n]",y);</span>
+<span class="body">366          while(fread(&amp;item,sizeof(item),1,file)==1)</span>
+<span class="body">367          {</span>
+<span class="body">368              if (strcmp(y,item.code)==0)</span>
+<span class="body">369              {</span>
+<span class="body">370                  flag=0;</span>
+<span class="body">371                  gotoxy(26,30);</span>
+<span class="body">372                  printf("code already exists");</span>
+<span class="body">373                  gotoxy(29,32);</span>
+<span class="body">374                  printf("enter again");</span>
+<span class="body">375                  getch();</span>
+<span class="body">376                  break;</span>
+<span class="body">377              }</span>
+<span class="body">378          }</span>
+<span class="body">379          if (flag==1)</span>
+<span class="body">380              break;</span>
+<span class="body">381      }</span>
+<span class="body">382  }</span>
+<span class="body">383  </span>
+<span class="body">384  /*function for editing*/</span>
+<span class="body">385  void edit()</span>
+<span class="body">386  {</span>
+<span class="body">387      int flag=0,choice;</span>
+<span class="body">388      char x[ACS],y[ACS];</span>
+<span class="body">389      FILE *file;</span>
+<span class="body">390      int size;</span>
+<span class="body">391      system("cls");</span>
+<span class="body">392  //textcolor(0);</span>
+<span class="body">393  //textbackground(11);</span>
+<span class="body">394      window(20,63,20,46);</span>
+<span class="body">395      gotoxy(35,18);</span>
+<span class="body">396      printf("EDIT RECORDS");</span>
+<span class="body">397      ;</span>
+<span class="body">398      gotoxy(25,23);</span>
+<span class="body">399      printf("enter item code: ");</span>
+<span class="body">400      scanf("%s",x);</span>
+<span class="body">401      flag=check(x);</span>
+<span class="body">402      if(flag==0)</span>
+<span class="body">403      {</span>
+<span class="body">404          file=fopen("record.txt","r+b");</span>
+<span class="body">405          rewind(file);</span>
+<span class="body">406          while (fread(&amp;item,sizeof (item),1,file))</span>
+<span class="body">407          {</span>
+<span class="body">408              if(strcmp(item.code,x)==0)</span>
+<span class="body">409              {</span>
+<span class="body">410                  //textcolor(0);</span>
+<span class="body">411                  gotoxy(25,27);</span>
+<span class="body">412                  printf("name       = %s",item.name);</span>
+<span class="body">413                  gotoxy(25,28);</span>
+<span class="body">414                  printf("code       = %s",item.code);</span>
+<span class="body">415                  gotoxy(25,29);</span>
+<span class="body">416                  printf("rate       = %g",item.rate);</span>
+<span class="body">417                  gotoxy(25,30);</span>
+<span class="body">418                  printf("quantity   = %d",item.quantity);</span>
+<span class="body">419                  gotoxy(25,32);;</span>
+<span class="body">420                  printf("Do you want to edit this record?(y/n):");</span>
+<span class="body">421                  fflush(file);</span>
+<span class="body">422                  if(toupper(getche())=='Y')</span>
+<span class="body">423                  {</span>
+<span class="body">424                      //textcolor(0);</span>
+<span class="body">425                      gotoxy(25,34);</span>
+<span class="body">426                      printf("1- edit name ");</span>
+<span class="body">427                      gotoxy(25,35);</span>
+<span class="body">428                      printf("2- edit code ");</span>
+<span class="body">429                      gotoxy(25,36);</span>
+<span class="body">430                      printf("3- edit rate ");</span>
+<span class="body">431                      gotoxy(25,37);</span>
+<span class="body">432                      printf("4- edit quantity ");</span>
+<span class="body">433                      gotoxy(25,39);  ;</span>
+<span class="body">434                      printf(" enter your choice(1, 2, 3, 4) ");</span>
+<span class="body">435                      scanf("%d",&amp;choice);</span>
+<span class="body">436                      switch(choice)</span>
+<span class="body">437                      {</span>
+<span class="body">438                      case 1:</span>
+<span class="body">439                          system("cls");</span>
+<span class="body">440                          window(23,48,20,40);</span>
+<span class="body">441                          gotoxy(35,18);</span>
+<span class="body">442                          printf("EDIT RECORDS");</span>
+<span class="body">443                          gotoxy(25,24);</span>
+<span class="body">444                          printf(" enter new name: ");</span>
+<span class="body">445                          scanf("%s",item.name);</span>
+<span class="body">446                          size=sizeof(item);</span>
+<span class="body">447                          fseek(file,-size,SEEK_CUR);</span>
+<span class="body">448                          fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">449                          break;</span>
+<span class="body">450                      case 2:</span>
+<span class="body">451                          system("cls");</span>
+<span class="body">452                          window(23,65,20,40);</span>
+<span class="body">453                          gotoxy(35,18);</span>
+<span class="body">454                          printf("EDIT RECORDS");</span>
+<span class="body">455                          gotoxy(25,24);</span>
+<span class="body">456                          c_code(y);</span>
+<span class="body">457                          strcpy(item.code,y);</span>
+<span class="body">458                          size=sizeof(item);</span>
+<span class="body">459                          fseek(file,-size,SEEK_CUR);</span>
+<span class="body">460                          fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">461                          break;</span>
+<span class="body">462                      case 3:</span>
+<span class="body">463                          system("cls");</span>
+<span class="body">464                          window(23,65,20,40);</span>
+<span class="body">465                          gotoxy(35,18);</span>
+<span class="body">466                          printf("EDIT RECORDS");</span>
+<span class="body">467                          gotoxy(25,24);</span>
+<span class="body">468                          printf(" enter new rate: ");</span>
+<span class="body">469                          scanf("%f",&amp;item.rate);</span>
+<span class="body">470                          size=sizeof(item);</span>
+<span class="body">471                          fseek(file,-size,SEEK_CUR);</span>
+<span class="body">472                          fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">473                          break;</span>
+<span class="body">474                      case 4:</span>
+<span class="body">475                          system("cls");</span>
+<span class="body">476                          window(23,65,20,40);</span>
+<span class="body">477                          gotoxy(35,18);</span>
+<span class="body">478                          printf("EDIT RECORDS");</span>
+<span class="body">479                          gotoxy(25,24);</span>
+<span class="body">480                          printf(" enter new quantity: ");</span>
+<span class="body">481                          scanf("%d",&amp;item.quantity);</span>
+<span class="body">482                          size=sizeof(item);</span>
+<span class="body">483                          fseek(file,-size,1);</span>
+<span class="body">484                          fwrite(&amp;item,sizeof(item),1,file);</span>
+<span class="body">485                          break;</span>
+<span class="body">486                      }</span>
+<span class="body">487                      gotoxy(27,30);</span>
+<span class="body">488                      printf("--- item edited---");</span>
+<span class="body">489                      break;</span>
+<span class="body">490                  }</span>
+<span class="body">491              }</span>
+<span class="body">492          }</span>
+<span class="body">493      }</span>
+<span class="body">494      if (flag==1)</span>
+<span class="body">495      {</span>
+<span class="body">496          gotoxy(32,30);</span>
+<span class="body">497          printf("Item does not exist.");</span>
+<span class="body">498          gotoxy(36,32);</span>
+<span class="body">499          printf("TRY ABGAIN");</span>
+<span class="body">500      }</span>
+<span class="body">501      getch();</span>
+<span class="body">502      fclose(file);</span>
+<span class="body">503      d_mainmenu();</span>
+<span class="body">504  }</span>
+<span class="body">505  </span>
+<span class="body">506  /*function to display all records*/</span>
+<span class="body">507  void d_all()</span>
+<span class="body">508  {</span>
+<span class="body">509      int i,j=1;</span>
+<span class="body">510      FILE *file;</span>
+<span class="body">511      dis_con();</span>
+<span class="body">512      file=fopen("record.txt","rb");</span>
+<span class="body">513      rewind(file);</span>
+<span class="body">514      i=26;</span>
+<span class="body">515      fflush(file);</span>
+<span class="body">516      while(fread(&amp;item,sizeof(item),1,file))</span>
+<span class="body">517      {</span>
+<span class="body">518          display(&amp;item,i,j);</span>
+<span class="body">519          i++;</span>
+<span class="body">520          j++;</span>
+<span class="body">521          if ((j%20)==0)</span>
+<span class="body">522          {</span>
+<span class="body">523              gotoxy(27,47);/*textcolor(0)*/;</span>
+<span class="body">524              printf("Press any key to see more...........");</span>
+<span class="body">525              getch();</span>
+<span class="body">526              system("cls");</span>
+<span class="body">527              dis_con();</span>
+<span class="body">528              i=26;</span>
+<span class="body">529              continue;</span>
+<span class="body">530          }</span>
+<span class="body">531      }</span>
+<span class="body">532      getch();</span>
+<span class="body">533      if (i==26)</span>
+<span class="body">534      {</span>
+<span class="body">535          gotoxy(24,30);</span>
+<span class="body">536          printf("-- no articles found --");</span>
+<span class="body">537      }</span>
+<span class="body">538      getch();</span>
+<span class="body">539      fclose(file);</span>
+<span class="body">540      d_mainmenu();</span>
+<span class="body">541  }</span>
+<span class="body">542  </span>
+<span class="body">543  /*function to display by quantity*/</span>
+<span class="body">544  void d_quan()</span>
+<span class="body">545  {</span>
+<span class="body">546      int i,j=1;</span>
+<span class="body">547      int a,b;</span>
+<span class="body">548      FILE *file;</span>
+<span class="body">549      dis_con();</span>
+<span class="body">550      file=fopen("record.txt","rb");</span>
+<span class="body">551      rewind(file);</span>
+<span class="body">552      i=26;</span>
+<span class="body">553      gotoxy(16,20);;</span>
+<span class="body">554      printf("Enter lower range: ");</span>
+<span class="body">555      scanf("%d",&amp;a);</span>
+<span class="body">556      gotoxy(16,21);</span>
+<span class="body">557      printf("Enter upper range:");</span>
+<span class="body">558      scanf("%d",&amp;b);</span>
+<span class="body">559      fflush(file);</span>
+<span class="body">560      while(fread(&amp;item,sizeof(item),1,file))</span>
+<span class="body">561      {</span>
+<span class="body">562          if((item.quantity&gt;=a)&amp;&amp;(item.quantity&lt;=b))</span>
+<span class="body">563          {</span>
+<span class="body">564              display(&amp;item,i,j);</span>
+<span class="body">565              i++;</span>
+<span class="body">566              j++;</span>
+<span class="body">567              if ((j%20)==0)</span>
+<span class="body">568              {</span>
+<span class="body">569                  gotoxy(27,47);</span>
+<span class="body">570                  printf("Press any key to see more...........");</span>
+<span class="body">571                  getch();</span>
+<span class="body">572                  system("cls");</span>
+<span class="body">573                  dis_con();</span>
+<span class="body">574                  i=26;</span>
+<span class="body">575                  continue;</span>
+<span class="body">576              }</span>
+<span class="body">577          }</span>
+<span class="body">578      }</span>
+<span class="body">579      getch();</span>
+<span class="body">580      if (i==26)</span>
+<span class="body">581      {</span>
+<span class="body">582          gotoxy(28,30);</span>
+<span class="body">583          printf(" No items found.");</span>
+<span class="body">584      }</span>
+<span class="body">585      getch();</span>
+<span class="body">586      d_search();</span>
+<span class="body">587      fclose(file);</span>
+<span class="body">588  }</span>
+<span class="body">589  </span>
+<span class="body">590  /*function to display by rate*/</span>
+<span class="body">591  void d_rate()</span>
+<span class="body">592  {</span>
+<span class="body">593      int i,j=1;</span>
+<span class="body">594      float a,b;</span>
+<span class="body">595      FILE *file;</span>
+<span class="body">596      dis_con();</span>
+<span class="body">597      file=fopen("record.txt","rb");</span>
+<span class="body">598      rewind(file);</span>
+<span class="body">599      i=26;</span>
+<span class="body">600      gotoxy(16,20);;</span>
+<span class="body">601      printf("enter lower range: ");</span>
+<span class="body">602      scanf("%f",&amp;a);</span>
+<span class="body">603      gotoxy(16,21);</span>
+<span class="body">604      printf("enter upper range: ");</span>
+<span class="body">605      scanf("%f",&amp;b);</span>
+<span class="body">606      fflush(file);</span>
+<span class="body">607      while(fread(&amp;item,sizeof(item),1,file))</span>
+<span class="body">608      {</span>
+<span class="body">609          if((item.rate&gt;=a)&amp;&amp;(item.rate&lt;=b))</span>
+<span class="body">610          {</span>
+<span class="body">611              display(&amp;item,i,j);</span>
+<span class="body">612              i++;</span>
+<span class="body">613              j++;</span>
+<span class="body">614              if ((j%20)==0)</span>
+<span class="body">615              {</span>
+<span class="body">616                  gotoxy(27,47);</span>
+<span class="body">617                  printf("press any key to see more...........");</span>
+<span class="body">618                  getch();</span>
+<span class="body">619                  system("cls");</span>
+<span class="body">620                  dis_con();</span>
+<span class="body">621                  i=26;</span>
+<span class="body">622                  continue;</span>
+<span class="body">623              }</span>
+<span class="body">624          }</span>
+<span class="body">625      }</span>
+<span class="body">626      getch();</span>
+<span class="body">627      if (i==26)</span>
+<span class="body">628      {</span>
+<span class="body">629          gotoxy(28,30);</span>
+<span class="body">630          printf(" no item found ");</span>
+<span class="body">631      }</span>
+<span class="body">632      getch();</span>
+<span class="body">633      fclose(file);</span>
+<span class="body">634      d_search();</span>
+<span class="body">635  }</span>
+<span class="body">636  </span>
+<span class="body">637  /*function to display by code*/</span>
+<span class="body">638  void d_code()</span>
+<span class="body">639  {</span>
+<span class="body">640      int i,j=1;</span>
+<span class="body">641      char x[4]= {0};</span>
+<span class="body">642      FILE *file;</span>
+<span class="body">643      dis_con();</span>
+<span class="body">644      file=fopen("record.txt","rb");</span>
+<span class="body">645      rewind(file);</span>
+<span class="body">646      i=26;</span>
+<span class="body">647      gotoxy(16,20);;</span>
+<span class="body">648      printf("enter item code: ");</span>
+<span class="body">649      scanf("%s",x);</span>
+<span class="body">650      fflush(file);</span>
+<span class="body">651      while(fread(&amp;item,sizeof(item),1,file))</span>
+<span class="body">652      {</span>
+<span class="body">653          if((strcmp(item.code,x)==0))</span>
+<span class="body">654          {</span>
+<span class="body">655              display(&amp;item,i,j);</span>
+<span class="body">656              i++;</span>
+<span class="body">657              j++;</span>
+<span class="body">658              break;</span>
+<span class="body">659          }</span>
+<span class="body">660      }</span>
+<span class="body">661      if (i==26)</span>
+<span class="body">662      {</span>
+<span class="body">663          gotoxy(28,30);</span>
+<span class="body">664          printf("no item found");</span>
+<span class="body">665      }</span>
+<span class="body">666      getch();</span>
+<span class="body">667      fclose(file);</span>
+<span class="body">668      d_search();</span>
+<span class="body">669  }</span>
+<span class="body">670  </span>
+<span class="body">671  /*function to display window for item display*/</span>
+<span class="body">672  void dis_con()</span>
+<span class="body">673  {</span>
+<span class="body">674      int i;</span>
+<span class="body">675      system("cls");</span>
+<span class="body">676      gotoxy(20,10);</span>
+<span class="body">677      ;</span>
+<span class="body">678      for (i=1; i&lt;=10; i++)</span>
+<span class="body">679          printf("*");</span>
+<span class="body">680      printf(" * FASHION WEAR * ");</span>
+<span class="body">681      for (i=1; i&lt;=10; i++)</span>
+<span class="body">682          printf("*");</span>
+<span class="body">683      printf("\n\n");</span>
+<span class="body">684      gotoxy(30,11);</span>
+<span class="body">685      printf("Departmental Store");</span>
+<span class="body">686  //textcolor(1);</span>
+<span class="body">687      gotoxy(32,17);</span>
+<span class="body">688      printf("RECORDS") ;</span>
+<span class="body">689  //textcolor(8);</span>
+<span class="body">690      gotoxy(18,23);</span>
+<span class="body">691      printf ("SN   Item Name   Item Code      Rate     Quantity");</span>
+<span class="body">692  }</span>
+<span class="body">693  </span>
+<span class="body">694  /*function to display in screen*/</span>
+<span class="body">695  void display(rec *item,int i,int j)</span>
+<span class="body">696  {</span>
+<span class="body">697      gotoxy(16,i);//textcolor(13);</span>
+<span class="body">698      printf("%4d",j);</span>
+<span class="body">699      printf("%9s",item-&gt;name);</span>
+<span class="body">700      printf("%12s",item-&gt;code);</span>
+<span class="body">701      printf("%14.2f",item-&gt;rate);</span>
+<span class="body">702      printf("%11d",item-&gt;quantity);</span>
+<span class="body">703  }</span>
+<span class="body">704  </span>
+<span class="body">705  /*function to delete records*/</span>
+<span class="body">706  void del()</span>
+<span class="body">707  {</span>
+<span class="body">708      int flag;</span>
+<span class="body">709      char x[ANS];</span>
+<span class="body">710      FILE *file,*file1;</span>
+<span class="body">711      system("cls");</span>
+<span class="body">712  //textbackground(11);</span>
+<span class="body">713  //textcolor(0);</span>
+<span class="body">714      window(23,51,25,34);</span>
+<span class="body">715      gotoxy(29,18);</span>
+<span class="body">716      printf("DELETE ARTICLES");</span>
+<span class="body">717      gotoxy(27,27);</span>
+<span class="body">718      printf("enter item code: ");</span>
+<span class="body">719      scanf("%s",x);</span>
+<span class="body">720      flag=check(x);</span>
+<span class="body">721      if(flag==0)</span>
+<span class="body">722      {</span>
+<span class="body">723          file1=fopen("record1.txt","ab");</span>
+<span class="body">724          file=fopen("record.txt","rb");</span>
+<span class="body">725          rewind(file);</span>
+<span class="body">726          while (fread(&amp;item,sizeof (item),1,file))</span>
+<span class="body">727          {</span>
+<span class="body">728              if(strcmp(item.code,x)!=0)</span>
+<span class="body">729                  fwrite(&amp;item,sizeof(item),1,file1);</span>
+<span class="body">730          }</span>
+<span class="body">731          gotoxy(27,29);</span>
+<span class="body">732          printf("---item deleted---");</span>
+<span class="body">733          remove("record.txt");</span>
+<span class="body">734          rename("record1.txt","record.txt");</span>
+<span class="body">735      }</span>
+<span class="body">736      if (flag==1)</span>
+<span class="body">737      {</span>
+<span class="body">738          gotoxy(25,29);</span>
+<span class="body">739          printf("---item does not exist---");</span>
+<span class="body">740          gotoxy(30,31);</span>
+<span class="body">741          printf("TRY AGAIN");</span>
+<span class="body">742      }</span>
+<span class="body">743      fclose(file1);</span>
+<span class="body">744      fclose(file);</span>
+<span class="body">745      getch();</span>
+<span class="body">746      d_mainmenu();</span>
+<span class="body">747  }</span>
+<span class="body">748  </span>
+<span class="body">749  /*function to check validity of code while editing and deleting*/</span>
+<span class="body">750  int check(char x[ANS])</span>
+<span class="body">751  {</span>
+<span class="body">752      FILE *file;</span>
+<span class="body">753      int flag=1;</span>
+<span class="body">754      file=fopen("record.txt","rb");</span>
+<span class="body">755      rewind(file);</span>
+<span class="body">756      while (fread(&amp;item,sizeof (item),1,file))</span>
+<span class="body">757      {</span>
+<span class="body">758          if(strcmp(item.code,x)==0)</span>
+<span class="body">759          {</span>
+<span class="body">760              flag=0;</span>
+<span class="body">761              break;</span>
+<span class="body">762          }</span>
+<span class="body">763      }</span>
+<span class="body">764      fclose(file);</span>
+<span class="body">765      return flag;</span>
+<span class="body">766  }</span>
+<span class="body">767  </span>
+<span class="body">768  /*function to display box*/</span>
+<span class="body">769  void window(int a,int b,int c,int d)</span>
+<span class="body">770  {</span>
+<span class="body">771      int i;</span>
+<span class="body">772      system("cls");</span>
+<span class="body">773      gotoxy(20,10);</span>
+<span class="body">774  //textcolor(1);</span>
+<span class="body">775      for (i=1; i&lt;=10; i++)</span>
+<span class="body">776          printf("*");</span>
+<span class="body">777      printf(" * FASHION WEAR * ");</span>
+<span class="body">778      for (i=1; i&lt;=10; i++)</span>
+<span class="body">779          printf("*");</span>
+<span class="body">780      printf("\n\n");</span>
+<span class="body">781      gotoxy(30,11);</span>
+<span class="body">782      printf("Departmental Store");</span>
+<span class="body">783  //textcolor(4);</span>
+<span class="body">784      for (i=a; i&lt;=b; i++)</span>
+<span class="body">785      {</span>
+<span class="body">786          gotoxy(i,17);</span>
+<span class="body">787          printf("\xcd");</span>
+<span class="body">788          gotoxy(i,19);</span>
+<span class="body">789          printf("\xcd");</span>
+<span class="body">790          gotoxy(i,c);</span>
+<span class="body">791          printf("\xcd");</span>
+<span class="body">792          gotoxy(i,d);</span>
+<span class="body">793          printf("\xcd");</span>
+<span class="body">794      }</span>
+<span class="body">795  </span>
+<span class="body">796      gotoxy(a,17);</span>
+<span class="body">797      printf("\xc9");</span>
+<span class="body">798      gotoxy(a,18);</span>
+<span class="body">799      printf("\xba");</span>
+<span class="body">800      gotoxy(a,19);</span>
+<span class="body">801      printf("\xc8");</span>
+<span class="body">802      gotoxy(b,17);</span>
+<span class="body">803      printf("\xbb");</span>
+<span class="body">804      gotoxy(b,18);</span>
+<span class="body">805      printf("\xba");</span>
+<span class="body">806      gotoxy(b,19);</span>
+<span class="body">807      printf("\xbc");</span>
+<span class="body">808  //textcolor(4);</span>
+<span class="body">809      for(i=c; i&lt;=d; i++)</span>
+<span class="body">810      {</span>
+<span class="body">811          gotoxy(a,i);</span>
+<span class="body">812          printf("\xba");</span>
+<span class="body">813          gotoxy(b,i);</span>
+<span class="body">814          printf("\xba");</span>
+<span class="body">815      }</span>
+<span class="body">816      gotoxy(a,c);</span>
+<span class="body">817      printf("\xc9");</span>
+<span class="body">818      gotoxy(a,d);</span>
+<span class="body">819      printf("\xc8");</span>
+<span class="body">820      gotoxy(b,c);</span>
+<span class="body">821      printf("\xbb");</span>
+<span class="body">822      gotoxy(b,d);</span>
+<span class="body">823      printf("\xbc");</span>
+<span class="body">824  //textbackground(11);</span>
+<span class="body">825  //textcolor(0);</span>
+<span class="body">826  }</span></span>
+</code></pre>
+</body>
+</html>
